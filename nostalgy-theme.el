@@ -109,7 +109,7 @@ For a curated set of overrides see `nostalgy-preset-overrides-colorful'."
     (fg-alt         "#d3d3d3") ; LightGray
     (bg-active      "#436868")
     (bg-inactive    "#2a4545")
-    (border         "#5c7d7d")
+    (border         "#41615f")
 
 ;;; Common accent foregrounds (tuned for contrast on DarkSlateGray)
 
@@ -188,10 +188,10 @@ For a curated set of overrides see `nostalgy-preset-overrides-colorful'."
 ;;; Special purpose
 
     (bg-hl-line     "#375656")
-    (bg-region      "#5a7d7d")
+    (bg-region      "#4a6b6b")
     (fg-region      "#f5deb3")
-    (bg-paren-match "#5f9ea0")
-    (fg-paren-match "#2f4f4f")
+    (bg-paren-match "#40706a")
+    (fg-paren-match "#f5deb3")
     (bg-paren-mismatch "#e9967a")
     (bg-search-current "#e8d994")
     (fg-search-current "#2f4f4f")
@@ -202,14 +202,15 @@ For a curated set of overrides see `nostalgy-preset-overrides-colorful'."
 
     (bg-mode-line-active   "#243c3c")
     (fg-mode-line-active   "#f5deb3")
-    (border-mode-line-active "#6f9a9a")
+    (border-mode-line-active "#2f4f4f")
     (bg-mode-line-inactive "#2a4545")
     (fg-mode-line-inactive "#9db0b0")
-    (border-mode-line-inactive "#4a6a6a")
+    (border-mode-line-inactive "#2f4f4f")
 
     (bg-tab-bar      "#274040")
     (bg-tab-current  "#2f4f4f")
     (bg-tab-other    "#385959")
+    (bg-tab-hover    "#476d6d")
 
     (fg-line-number-inactive "#86a3a3")
     (fg-line-number-active   "#f5deb3")
@@ -419,10 +420,12 @@ Assign to `nostalgy-palette-overrides' before loading the theme.")
       (line-number-minor-tick ((t :background ,bg-dim :foreground ,fg-dim)))
 
 ;;; Mode line
+      ;; Flat mode line -- no visible box border (see `border-mode-line-*',
+      ;; which are pinned to the canvas colour to keep any box invisible).
       (mode-line ((t :background ,bg-mode-line-active :foreground ,fg-mode-line-active :box nil)))
       (mode-line-active ((t :inherit mode-line)))
-      (mode-line-inactive ((t :background ,bg-mode-line-inactive :foreground ,fg-mode-line-inactive :box (:line-width 1 :color ,border-mode-line-inactive))))
-      (mode-line-highlight ((t :background ,bg-hover :foreground ,fg-main :box (:line-width 1 :color ,border))))
+      (mode-line-inactive ((t :background ,bg-mode-line-inactive :foreground ,fg-mode-line-inactive :box nil)))
+      (mode-line-highlight ((t :background ,bg-hover :foreground ,fg-main :box nil)))
       (mode-line-emphasis ((t :foreground ,cyan-cooler :weight normal)))
       (mode-line-buffer-id ((t :weight normal)))
       (header-line ((t :background ,bg-dim :foreground ,fg-main)))
@@ -537,6 +540,8 @@ Assign to `nostalgy-palette-overrides' before loading the theme.")
       (tab-bar-tab-inactive ((t :background ,bg-tab-other :foreground ,fg-dim :box (:line-width 2 :color ,bg-tab-other))))
       (tab-bar-tab-group-current ((t :foreground ,cyan-cooler :weight normal)))
       (tab-bar-tab-group-inactive ((t :foreground ,fg-dim)))
+      ;; Emacs 31: mouse-hover highlight on tabs.
+      (tab-bar-tab-highlight ((t :background ,bg-tab-hover :foreground ,fg-main :box (:line-width 2 :color ,bg-tab-hover))))
       (tab-line ((t :background ,bg-tab-bar :foreground ,fg-main)))
       (tab-line-tab ((t :inherit tab-bar-tab)))
       (tab-line-tab-current ((t :inherit tab-bar-tab)))

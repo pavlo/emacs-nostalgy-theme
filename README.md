@@ -4,6 +4,9 @@ A dark Emacs theme that revives the palette of the early graphical web and the
 X11 `rgb.txt` colour list: a `DarkSlateGray` canvas, `wheat` text, sea greens,
 burlywood, and a jolt of pure `cyan` for links and strings.
 
+<img src="sample.png" alt="Nostalgy theme in Emacs" width="720">
+
+
 The internal architecture follows the [Modus
 themes](https://protesilaos.com/emacs/modus-themes) by Protesilaos Stavrou:
 
@@ -67,7 +70,7 @@ Retrieve a resolved value in your own code:
 (nostalgy-get-color-value 'fg-heading-1)
 ```
 
-or bind the whole palette as local variables:
+or run code with every palette entry bound as a lexical variable:
 
 ```elisp
 (nostalgy-with-colors
