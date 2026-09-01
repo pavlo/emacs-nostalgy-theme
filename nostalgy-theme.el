@@ -419,7 +419,7 @@ Assign to `nostalgy-palette-overrides' before loading the theme.")
       (line-number-minor-tick ((t :background ,bg-dim :foreground ,fg-dim)))
 
 ;;; Mode line
-      (mode-line ((t :background ,bg-mode-line-active :foreground ,fg-mode-line-active :box (:line-width 1 :color ,border-mode-line-active))))
+      (mode-line ((t :background ,bg-mode-line-active :foreground ,fg-mode-line-active :box nil)))
       (mode-line-active ((t :inherit mode-line)))
       (mode-line-inactive ((t :background ,bg-mode-line-inactive :foreground ,fg-mode-line-inactive :box (:line-width 1 :color ,border-mode-line-inactive))))
       (mode-line-highlight ((t :background ,bg-hover :foreground ,fg-main :box (:line-width 1 :color ,border))))
