@@ -105,3 +105,68 @@ completion UI plus `orderless`, `vertico`, `marginalia`, `consult`, `corfu`,
 `eshell`/`term`/`ansi-color`, `org` (agenda included), `outline`, `markdown`,
 `whitespace-mode`, `rainbow-delimiters`, `hl-todo`, widgets/`customize`,
 `info`, and `message`/`gnus` essentials.
+
+## Ports
+
+The same palette is available for two more tools, so the terminal side of
+your setup matches Emacs:
+
+- **[WezTerm](wezterm/)** — `wezterm/nostalgy.toml`
+- **[Midnight Commander](mc/)** — `mc/nostalgy.ini`
+
+### WezTerm
+
+```sh
+mkdir -p ~/.config/wezterm/colors
+cp wezterm/nostalgy.toml ~/.config/wezterm/colors/
+```
+
+```lua
+-- wezterm.lua
+config.color_scheme = 'Nostalgy'
+```
+
+That covers the terminal grid, cursor, selection, scrollbar, split lines
+and the `copy_mode`/`quick_select` overlays.
+
+**Tab bar and window frame.** A colour-scheme file cannot style them.
+The default *fancy* tab bar and the frame around it are driven by
+`window_frame`, which only exists in Lua — so `wezterm/nostalgy.lua`
+carries that piece:
+
+```lua
+local wezterm = require 'wezterm'
+local config = wezterm.config_builder()
+
+-- point Lua at wherever you cloned this repo
+package.path = wezterm.home_dir
+  .. '/src/emacs-nostalgy-theme/wezterm/?.lua;' .. package.path
+
+require('nostalgy').apply(config)          -- scheme + window_frame + tabs
+-- require('nostalgy').apply(config, { retro_tab_bar = true })  -- classic text tabs
+
+return config
+```
+
+`apply` sets `color_scheme`, the `window_frame` colours (title bar, its
+border, the `+`/`x` buttons) and the per-tab colours. Pass
+`{ retro_tab_bar = true }` to switch off the fancy bar and get the full
+palette rendered in text cells.
+
+### Midnight Commander
+
+```sh
+mkdir -p ~/.local/share/mc/skins
+cp mc/nostalgy.ini ~/.local/share/mc/skins/
+```
+
+Then **Options → Appearance → `nostalgy`**, or `mc -S nostalgy`.
+
+The skin uses true colour, so it needs mc ≥ 4.8.19 on a true-colour
+terminal — launch as `COLORTERM=truecolor mc` if mc doesn't pick it up.
+On 256-colour terminals mc maps each hue to the nearest xterm colour;
+on 16-colour terminals use the bundled `default` skin instead.
+
+Covers the panels, drop-down menus, dialogs, error dialogs, the
+button/status bars, `filehighlight` (per file-type colours matching
+`dired`), the internal editor and viewer, and `mcdiff`.

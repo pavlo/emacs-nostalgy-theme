@@ -1,0 +1,88 @@
+# Nostalgy -- a nostalgic dark scheme built on classic X11 / early-web colours.
+# Port of the Emacs `nostalgy-theme': DarkSlateGray canvas, wheat ink,
+# sea greens, burlywood, and a jolt of pure cyan for accents.
+#
+# Install:  copy this file to  ~/.config/wezterm/colors/nostalgy.toml
+# Use:      in wezterm.lua  ->  config.color_scheme = 'Nostalgy'
+
+[metadata]
+name = "Nostalgy"
+author = "Pavlo <pavlikus@gmail.com>"
+origin_url = "https://github.com/pavlo/emacs-nostalgy-theme"
+
+[colors]
+foreground = "#f5deb3"        # wheat
+background = "#2f4f4f"        # DarkSlateGray
+
+cursor_bg = "#f5deb3"
+cursor_fg = "#2f4f4f"
+cursor_border = "#f5deb3"
+
+selection_fg = "#f5deb3"
+selection_bg = "#4a6b6b"     # bg-region
+
+scrollbar_thumb = "#436868"  # bg-active
+split = "#41615f"            # border
+compose_cursor = "#7fffd4"   # Aquamarine (cyan-warmer)
+
+# 0: black        1: red          2: green        3: yellow
+# 4: blue         5: magenta      6: cyan         7: white
+ansi = ["#2a4545", "#e9967a", "#3cb371", "#e8d994", "#8fb2cc", "#caa6ca", "#4fd0d0", "#d3d3d3"]
+# 8: br-black     9: br-red      10: br-green    11: br-yellow
+# 12: br-blue    13: br-magenta  14: br-cyan     15: br-white
+brights = ["#86a3a3", "#ff6a5a", "#54d06a", "#f2d64b", "#79b8ff", "#e59bd4", "#00ffff", "#f5deb3"]
+
+# Copy-mode / search highlights -- mirrors Emacs isearch.
+copy_mode_active_highlight_bg = { Color = "#e8d994" }
+copy_mode_active_highlight_fg = { Color = "#2f4f4f" }
+copy_mode_inactive_highlight_bg = { Color = "#4f7f7f" }
+copy_mode_inactive_highlight_fg = { Color = "#f5deb3" }
+
+quick_select_label_bg = { Color = "#e9967a" }
+quick_select_label_fg = { Color = "#2f4f4f" }
+quick_select_match_bg = { Color = "#375656" }
+quick_select_match_fg = { Color = "#f5deb3" }
+
+[colors.tab_bar]
+background = "#274040"        # bg-tab-bar
+inactive_tab_edge = "#41615f"
+
+[colors.tab_bar.active_tab]
+bg_color = "#2f4f4f"
+fg_color = "#f5deb3"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#385959"
+fg_color = "#b3ac8f"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#476d6d"
+fg_color = "#f5deb3"
+intensity = "Normal"
+italic = true
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#274040"
+fg_color = "#b3ac8f"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#476d6d"
+fg_color = "#f5deb3"
+intensity = "Normal"
+italic = true
+strikethrough = false
+underline = "None"
